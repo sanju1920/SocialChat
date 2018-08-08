@@ -1,0 +1,21 @@
+.navbar {
+    background-color: black;
+    height:100px;
+}
+.menu {
+    float: right;
+   
+}
+.menu li
+{
+	display: inline-block;
+    margin-top: 35px;
+    margin-right: 20px;
+    text-decoration: none;
+	color: white;
+	padding: 5px 5px;
+	font-family: sans-serif;
+    font: bolder;
+    font-size: 20px;
+	letter-spacing: 2px;
+}

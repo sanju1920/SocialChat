@@ -1,0 +1,19 @@
+.room{
+    width: 100%;
+    margin-top: 100px;
+    height: 562px;
+    background-color: gainsboro;
+}
+.textbox {
+    width: 80%;
+    height: 80px;
+    margin-left: 20%;
+   margin-top: -80px;
+}
+.chatroom {
+    width: 80%;
+    height: 490px;
+    margin-left: 20%;
+    margin-top: -41.5%;
+   background-color: whitesmoke;
+}
