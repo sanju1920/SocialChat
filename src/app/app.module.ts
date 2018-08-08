@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { MessageBoxComponent } from './message-box/message-box.component';
 import { ChannelListComponent } from './channel-list/channel-list.component';
 import { ShowMessageComponent } from './show-message/show-message.component';
+import {Routes,RouterModule} from '@angular/router';
 import {HttpModule} from '@angular/http'
 import{HttpClientModule} from '@angular/common/http';
 import {
@@ -33,9 +34,14 @@ export function getAuthServiceConfigs() {
   return config;
 }
 
-//********************************** *//
+//***************   Create routes       ******************* *//
+const routes =[
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  {path:'login' , component:LoginComponent},
+  {path:'ChatRoom',component:ChatroomComponent}
+];
 
-
+// **********************************//
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +56,8 @@ export function getAuthServiceConfigs() {
     BrowserModule,
     SocialLoginModule,
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [ApiHitService,{
     provide: AuthServiceConfig,

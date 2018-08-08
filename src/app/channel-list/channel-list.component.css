@@ -1,7 +1,9 @@
 .ChannelRoom {
-    height: 100%;
-    width: 20%;
-    background-color: gainsboro;
-    /* background-image:url(/src/assets/image/chat.jpg); */
+    position: absolute;
+    margin-top: -80px;
+    height: 690px;
+    width: 25%;
+    background-color: rgb(71, 35, 64);
+    
     overflow: hidden;
 }

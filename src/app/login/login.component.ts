@@ -31,8 +31,8 @@ export class LoginComponent implements OnInit {
         // ...
         // set the user data to MyService so your can use it of its own 
        
-       var  res =this.service.getData();
-       res.subscribe(data=>console.log(data));
+     //  var  res =this.service.getData();
+      // res.subscribe(data=>console.log(data));
         
       }
     );
