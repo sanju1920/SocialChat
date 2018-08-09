@@ -7,16 +7,22 @@ import { HttpHeaders, HttpClient, HttpParams } from '@angular/common/http';
 })
 
 export class ApiHitService {
-  url:string="https://chat.twilio.com/v2/Services"
-  
+   url:string="https://chat.twilio.com/v2/Services"
+  channelUrl:string="https://chat.twilio.com/v2/Services/IScf713e81084f479691f0b349a69cbfd0/Channels";
  
 
   constructor(private http :HttpClient) { 
   
   }
-  getData():Observable<any>{
-    const body = new HttpParams().set('FriendlyName','Chat');
-     return this.http.post(this.url,body.toString(),httpOptions)
+  getChannel():Observable<any>{
+    // const body = new HttpParams().set('FriendlyName','ChatRoom');
+     return this.http.get(this.channelUrl,httpOptions)
+    
+  } 
+  createChannel(search):Observable<any>{
+    console.log(this.channelUrl);
+    const body = new HttpParams().set('UniqueName',search);
+     return this.http.post(this.channelUrl,body.toString(),httpOptions)
     
   } 
 }

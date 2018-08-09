@@ -1,3 +1,16 @@
  <div class="ChannelRoom">
-
+    <div class="UserDetail">
+        <h1>Sanjay</h1>
+        <span class="glyphicon glyphicon-bell"></span>
+    </div>
+    <div class="Channel">
+        <h1>Channels</h1>
+        <span class="glyphicon glyphicon-plus-sign" (click)="add()"></span>
+      <i *ngIf="checkadd">  <button (click)="Create()">Add</button> <input type="search" name="search" [(ngModel)]="search"/></i>
+    </div>
+    <div class="directMessage">
+        <h1>Direct Message</h1>
+        <span class="glyphicon glyphicon-plus-sign"></span>
+    </div>
+    
 </div>
