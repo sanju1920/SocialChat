@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MyserviceService } from '../myservice.service';
 
 @Component({
   selector: 'app-show-message',
@@ -6,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./show-message.component.css']
 })
 export class ShowMessageComponent implements OnInit {
-
-  constructor() { }
+  show;
+  constructor(private mysevice :MyserviceService) {
+    this.show=mysevice.showmessage;
+    console.log(this.show,"show");
+   }
 
   ngOnInit() {
   }

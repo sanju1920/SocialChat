@@ -4,14 +4,14 @@
     overflow: hidden;
 }
 .form-inline {
-    width: 100%;
+    width: 80%;
 }
 .input-group{
-width: 90%;
+width: 100%;
 margin-left: 5%;
 }
 input{
-    border-radius: 5px;
+    border-radius: 5px;   
     border: ridge;
     border-width: 0.5px;
 }
@@ -28,4 +28,14 @@ input{
 span{
     margin-left: 10px;
     margin-top: 7px;
+}
+i{
+    float: right;
+    font-size: 30px;
+    margin-right: 100px;
+    margin-top: -30px;
+    cursor: pointer;
+}
+input{
+    width: 70%;
 }

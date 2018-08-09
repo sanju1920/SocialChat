@@ -4,7 +4,10 @@
             <div class="input-group-prepend">
               <span class="glyphicon glyphicon-plus"></span>
             </div>
-            <input type="text" class="form-control" placeholder="#Message" >
+            <input type="text" class="form-control" placeholder="#Message"name="message" [(ngModel)]="message" >
+           
           </div>
+          
         </form>
+        <i class="glyphicon glyphicon-send" (click)="send()"></i>
       </nav>

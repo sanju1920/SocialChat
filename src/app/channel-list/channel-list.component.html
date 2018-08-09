@@ -7,7 +7,12 @@
         <h1>Channels</h1>
         <span class="glyphicon glyphicon-plus-sign" (click)="add()"></span>
       <i *ngIf="checkadd">  <button (click)="Create()">Add</button> <input type="search" name="search" [(ngModel)]="search"/></i>
-    </div>
+        <div *ngFor="let channelName of channelList ">
+            <label></label>
+            <i (click) ="showMessage(channelName)">#{{channelName.unique_name}}</i>
+            <label></label>
+        </div>
+     </div>
     <div class="directMessage">
         <h1>Direct Message</h1>
         <span class="glyphicon glyphicon-plus-sign"></span>

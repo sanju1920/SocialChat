@@ -8,7 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { MessageBoxComponent } from './message-box/message-box.component';
 import { ChannelListComponent } from './channel-list/channel-list.component';
 import { ShowMessageComponent } from './show-message/show-message.component';
-import {Routes,RouterModule} from '@angular/router';
+import {RouterModule} from '@angular/router';
 import {HttpModule} from '@angular/http'
 import{HttpClientModule} from '@angular/common/http';
 import {
@@ -18,6 +18,7 @@ import {
   
 } from "angular-6-social-login";
 import { ApiHitService } from './api-hit.service';
+import { MyserviceService } from './myservice.service';
 
 //************************************* *//
 export function getAuthServiceConfigs() {
@@ -60,7 +61,7 @@ const routes =[
     RouterModule.forRoot(routes),
     FormsModule
   ],
-  providers: [ApiHitService,{
+  providers: [ApiHitService,MyserviceService,{
     provide: AuthServiceConfig,
     useFactory: getAuthServiceConfigs
   }],
