@@ -1,6 +1,6 @@
  <div class="ChannelRoom">
     <div class="UserDetail">
-        <h1>Sanjay</h1>
+        <h1>{{name}}</h1>
         <span class="glyphicon glyphicon-bell"></span>
     </div>
     <div class="Channel">
@@ -9,7 +9,7 @@
       <i *ngIf="checkadd">  <button (click)="Create()">Add</button> <input type="search" name="search" [(ngModel)]="search"/></i>
         <div *ngFor="let channelName of channelList ">
             <label></label>
-            <i (click) ="showMessage(channelName)">#{{channelName.unique_name}}</i>
+            <i (click) ="showMessage(channelName)">#{{channelName.unique_name}} <i (click)="join(channelName)">join</i></i>
             <label></label>
         </div>
      </div>

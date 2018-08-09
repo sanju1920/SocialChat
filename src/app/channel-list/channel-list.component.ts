@@ -9,13 +9,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./channel-list.component.css']
 })
 export class ChannelListComponent implements OnInit {
-
+  name:string;
   checkadd: boolean = false;
   search: string = "";
   channelList:any;
   constructor(private apihit:ApiHitService,private myserve:MyserviceService,private routes:Router) {
     this.channelList=myserve.AllchannelDetail;
    // console.log(this.channelList)
+   this.name=this.apihit.UserData.name;
    }
 
   ngOnInit() {
@@ -38,8 +39,14 @@ export class ChannelListComponent implements OnInit {
     console.log(member)
     this.myserve.channelid = member
     var getmessage=this.apihit.getMessage(member)
-      getmessage.subscribe(data=>{this.myserve.showmessage=data});
-  //  var  store= this.apihit.joinMember(member);
-  //  store.subscribe(data=>{console.log(data)});
+      getmessage.subscribe(data=>{this.myserve.showmessage=data
+        console.log(this.myserve.showmessage,'data');
+      this.routes.navigate['/ChatRoom']
+      });
+  
+  }
+  join(member){
+     var  store= this.apihit.joinMember(member);
+   store.subscribe(data=>{console.log(data)});
   }
 }

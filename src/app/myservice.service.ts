@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class MyserviceService {
   AllchannelDetail:any;
   channelid;
+  showmessage;
   constructor() { 
    
   

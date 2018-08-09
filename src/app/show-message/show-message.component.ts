@@ -8,12 +8,19 @@ import { MyserviceService } from '../myservice.service';
 })
 export class ShowMessageComponent implements OnInit {
   show;
-  constructor(private mysevice :MyserviceService) {
-    this.show=mysevice.showmessage;
-    console.log(this.show,"show");
-   }
+  constructor(private mysevice: MyserviceService) {
+    
+
+  }
+  showdata() {
+    if (this.mysevice.showmessage != undefined) {
+      this.show = this.mysevice.showmessage.messages;
+      console.log(this.show, "show");
+    }
+  }
 
   ngOnInit() {
+    this.showdata()
   }
 
 }

@@ -26,13 +26,13 @@ export class ApiHitService {
     
   } 
   joinMember(member):Observable<any>{
-    console.log(this.channelUrl);
+    //console.log(this.channelUrl);
     const body = new HttpParams().set('ChannelSid',member.service_sid).set('ServiceSid',member.sid).set('Identity',this.UserData.id)
      return this.http.post(member.links.members,body.toString(),httpOptions)
     
   } 
   sendMessage(messageurl,message,member):Observable<any>{
-    console.log(message)
+    //console.log(message)
     const body = new HttpParams().set('ChannelSid',member.service_sid).set('ServiceSid',member.sid).set('Body',message)
      return this.http.post(messageurl,body.toString(),httpOptions)
     
