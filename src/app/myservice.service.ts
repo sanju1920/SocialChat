@@ -7,6 +7,7 @@ export class MyserviceService {
   AllchannelDetail:any;
   channelid;
   showmessage;
+  navbar:string;
   constructor() { 
    
   

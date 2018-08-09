@@ -1,6 +1,10 @@
 <div class="show">
-    <span (click)="showdata()">Click to Show message</span>
+    <!-- <span (click)="showdata()">Click to Show message</span> -->
 <div *ngFor="let message of show">
-    <span class="form-control"> {{message.body}}</span>
+        <label></label>
+    <span class="alert alert-success" *ngIf="message.from===id"> {{message.body}}</span>
+    <label></label>
+    <span class="alert alert-success" *ngIf="message.from !=id" id="color"> {{message.body}}</span>
+    <label></label>
 </div>
 </div>

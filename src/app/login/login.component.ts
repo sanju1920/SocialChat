@@ -3,6 +3,7 @@ import { GoogleLoginProvider, AuthService } from '../../../node_modules/angular-
 import { ApiHitService } from '../api-hit.service';
 import { Router } from '@angular/router';
 import { MyserviceService } from '../myservice.service';
+import { AuthguardService } from '../authguard.service';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { MyserviceService } from '../myservice.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private socialAuthService: AuthService, private service: ApiHitService, private routes: Router,private myserve:MyserviceService) {
+  constructor(private socialAuthService: AuthService, private service: ApiHitService, private routes: Router,private myserve:MyserviceService,private auth:AuthguardService) {
 
 
   }
@@ -30,6 +31,7 @@ export class LoginComponent implements OnInit {
       (userData) => {
         console.log(socialPlatform + " sign in data : ", userData);
         this.service.UserData=userData;
+        this.auth.auth=true;
         // Now sign-in with userData
         // ...
         // set the user data to MyService so your can use it of its own 

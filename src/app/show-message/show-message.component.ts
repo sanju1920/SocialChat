@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MyserviceService } from '../myservice.service';
+import { ApiHitService } from '../api-hit.service';
 
 @Component({
   selector: 'app-show-message',
@@ -8,19 +9,23 @@ import { MyserviceService } from '../myservice.service';
 })
 export class ShowMessageComponent implements OnInit {
   show;
-  constructor(private mysevice: MyserviceService) {
+  id;
+  constructor(private mysevice: MyserviceService,private api:ApiHitService) {
     
-
+  this.id = api.UserData.id;
   }
   showdata() {
     if (this.mysevice.showmessage != undefined) {
       this.show = this.mysevice.showmessage.messages;
-      console.log(this.show, "show");
+     // console.log(this.show, "show");
     }
   }
 
   ngOnInit() {
-    this.showdata()
+   
+    setInterval(() => {
+      this.showdata()
+      }, 1000);
   }
 
 }

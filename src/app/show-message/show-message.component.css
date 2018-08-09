@@ -4,3 +4,13 @@
     height: 545px;
     overflow:hidden;
 }
+.alert-success{
+   float: right;
+}
+.alert {
+    width: 51%;
+}
+#color{
+    background-color: rgb(243, 160, 105);
+    float: left;
+}

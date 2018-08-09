@@ -19,6 +19,7 @@ import {
 } from "angular-6-social-login";
 import { ApiHitService } from './api-hit.service';
 import { MyserviceService } from './myservice.service';
+import { AuthguardService } from './authguard.service';
 
 //************************************* *//
 export function getAuthServiceConfigs() {
@@ -39,7 +40,8 @@ export function getAuthServiceConfigs() {
 const routes =[
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   {path:'login' , component:LoginComponent},
-  {path:'ChatRoom',component:ChatroomComponent}
+  {path:'ChatRoom',component:ChatroomComponent,canActivate:['ChatRoom']},
+  { path: '**', redirectTo: '/login', pathMatch: 'full' },
 ];
 
 // **********************************//
@@ -61,7 +63,7 @@ const routes =[
     RouterModule.forRoot(routes),
     FormsModule
   ],
-  providers: [ApiHitService,MyserviceService,{
+  providers: [ApiHitService,MyserviceService,AuthguardService{
     provide: AuthServiceConfig,
     useFactory: getAuthServiceConfigs
   }],

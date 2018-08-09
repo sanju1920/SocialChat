@@ -14,7 +14,7 @@ export class ChannelListComponent implements OnInit {
   search: string = "";
   channelList:any;
   constructor(private apihit:ApiHitService,private myserve:MyserviceService,private routes:Router) {
-    this.channelList=myserve.AllchannelDetail;
+    this.channelList=this.myserve.AllchannelDetail;
    // console.log(this.channelList)
    this.name=this.apihit.UserData.name;
    }
@@ -32,18 +32,19 @@ export class ChannelListComponent implements OnInit {
       }
       );
         this.checkadd=false;
+        this.channelList=this.myserve.AllchannelDetail;    }
         this.routes.navigate(['/ChatRoom'])
-    }
   }
   showMessage(member){
-    console.log(member)
+   // console.log(member)
+   this.myserve.navbar=member.unique_name;
     this.myserve.channelid = member
     var getmessage=this.apihit.getMessage(member)
       getmessage.subscribe(data=>{this.myserve.showmessage=data
-        console.log(this.myserve.showmessage,'data');
-      this.routes.navigate['/ChatRoom']
+      //  console.log(this.myserve.showmessage,'data');
+      
       });
-  
+    
   }
   join(member){
      var  store= this.apihit.joinMember(member);

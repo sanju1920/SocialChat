@@ -33,7 +33,7 @@ export class ApiHitService {
   } 
   sendMessage(messageurl,message,member):Observable<any>{
     //console.log(message)
-    const body = new HttpParams().set('ChannelSid',member.service_sid).set('ServiceSid',member.sid).set('Body',message)
+    const body = new HttpParams().set('ChannelSid',member.service_sid).set('ServiceSid',member.sid).set('Body',message).set('From',this.UserData.id)
      return this.http.post(messageurl,body.toString(),httpOptions)
     
   }
