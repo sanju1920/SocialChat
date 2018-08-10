@@ -38,9 +38,9 @@ export function getAuthServiceConfigs() {
 
 //***************   Create routes       ******************* *//
 const routes =[
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', component:LoginComponent },
   {path:'login' , component:LoginComponent},
-  {path:'ChatRoom',component:ChatroomComponent,canActivate:['ChatRoom']},
+  {path:'ChatRoom',component:ChatroomComponent,canActivate:[AuthguardService]},
   { path: '**', redirectTo: '/login', pathMatch: 'full' },
 ];
 
@@ -63,7 +63,7 @@ const routes =[
     RouterModule.forRoot(routes),
     FormsModule
   ],
-  providers: [ApiHitService,MyserviceService,AuthguardService{
+  providers: [ApiHitService,MyserviceService,AuthguardService,{
     provide: AuthServiceConfig,
     useFactory: getAuthServiceConfigs
   }],
