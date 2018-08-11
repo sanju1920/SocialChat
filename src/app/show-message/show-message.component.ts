@@ -10,22 +10,23 @@ import { ApiHitService } from '../api-hit.service';
 export class ShowMessageComponent implements OnInit {
   show;
   id;
-  constructor(private mysevice: MyserviceService,private api:ApiHitService) {
-    
-  this.id = api.UserData.id;
+  constructor(private mysevice: MyserviceService, private api: ApiHitService) {
+
+    this.id = api.UserData.id;
   }
   showdata() {
-    if (this.mysevice.showmessage != undefined) {
-      this.show = this.mysevice.showmessage.messages;
-     // console.log(this.show, "show");
+    if (this.mysevice.channelid != undefined) {
+      this.api.getMessage(this.mysevice.channelid)
+        .subscribe(data => {this.show = data.messages
+       // console.log(data)
+        });
     }
   }
-
   ngOnInit() {
-   
-    setInterval(() => {
-      this.showdata()
-      }, 1000);
+
+    // setInterval(() => {
+    //   this.showdata()
+    // }, 600);
   }
 
 }

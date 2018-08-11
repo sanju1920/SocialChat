@@ -1,11 +1,8 @@
-.form-inline{
+.btn{
     float: right;
-    letter-spacing: 3ch;
     font-size: 16px;
 }
-i{
-   margin-right: -10ch;
-}
+
 .navbar{
     width: 75%;
     margin-left: 25%;

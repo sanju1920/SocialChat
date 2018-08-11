@@ -1,21 +1,50 @@
- <div class="ChannelRoom">
-    <div class="UserDetail">
+<div class="ChannelRoom">
+     <div class="UserDetail">
         <h1>{{name}}</h1>
         <span class="glyphicon glyphicon-bell"></span>
-    </div>
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder=" Search" name="reg" [(ngModel)]="reg" (keyup)="creatReg()">
+        </form>
+        <div class="list1">
+            <label></label>
+            <div *ngFor="let channelName of channelList ">
+                   
+                <div *ngIf="(reg !=''&& searchkey.test(channelName.unique_name))" >
+                    <label></label>
+
+                    <a (click)="join(channelName)">#{{channelName.unique_name}}
+
+                    </a>
+
+
+                </div>
+            </div>
+            <label></label>
+        </div>
+    </div> 
+
+
     <div class="Channel">
         <h1>Channels</h1>
         <span class="glyphicon glyphicon-plus-sign" (click)="add()"></span>
-      <i *ngIf="checkadd">  <button (click)="Create()">Add</button> <input type="search" name="search" [(ngModel)]="search"/></i>
-        <div *ngFor="let channelName of channelList ">
+        <i *ngIf="checkadd">
+
+            <input type="search" name="search" [(ngModel)]="search" (keydown)="Create($event)" placeholder="Enter new Channel" />
             <label></label>
-            <i (click) ="showMessage(channelName)">#{{channelName.unique_name}} <i (click)="join(channelName)">join</i></i>
-            <label></label>
+        </i>
+        <div class="list">
+            <div *ngFor="let channelName of channelList ">
+                <label></label>
+                <a (click)="showMessage(channelName)">#{{channelName.unique_name}}
+
+                </a>
+                <label></label>
+            </div>
         </div>
-     </div>
+    </div>
     <div class="directMessage">
         <h1>Direct Message</h1>
         <span class="glyphicon glyphicon-plus-sign"></span>
     </div>
-    
+
 </div>

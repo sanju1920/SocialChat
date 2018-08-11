@@ -4,38 +4,21 @@
     overflow: hidden;
 }
 .form-inline {
+    width: 90%;
+    display: inline;
+}
+
+input[type=text] {
     width: 80%;
-}
-.input-group{
-width: 100%;
-margin-left: 5%;
-}
-input{
     border-radius: 5px;   
     border: ridge;
     border-width: 0.5px;
 }
-.input-group-prepend{
-    position: absolute;
-    width: 5%;
-    height: 35px;
-    margin-left: -5%;
-    border: ridge;
-    border-width: 0.5px;
-    border-radius: 5px;
+.btn {
+    width: 10%;
+    float: right;
+    margin-right: 5%;
     
 }
-span{
-    margin-left: 10px;
-    margin-top: 7px;
-}
-i{
-    float: right;
-    font-size: 30px;
-    margin-right: 100px;
-    margin-top: -30px;
-    cursor: pointer;
-}
-input{
-    width: 70%;
-}
+
+ 

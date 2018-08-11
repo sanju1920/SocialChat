@@ -1,13 +1,12 @@
 <nav class="navbar navbar-light bg-light">
-        <form class="form-inline">
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="glyphicon glyphicon-plus"></span>
-            </div>
-            <input type="text" class="form-control" placeholder="#Message"name="message" [(ngModel)]="message" >
-           
-          </div>
-          
-        </form>
-        <i class="glyphicon glyphicon-send" (click)="send()"></i>
-      </nav>
+  <form class="form-inline">
+      
+
+          <input type="text" class="form-control" placeholder="#Message" name="message" [(ngModel)]="message" (keydown)="send($event)">
+          <label for="imageUpload" class="btn btn-primary btn-block btn-outlined">image</label>
+          <input type="file" id="imageUpload" name="image" accept="image/*" style="display: none" [(ngModel)]="image">
+
+    
+  </form>
+
+</nav>

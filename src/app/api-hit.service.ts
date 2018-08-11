@@ -21,21 +21,38 @@ export class ApiHitService {
   } 
   createChannel(search):Observable<any>{
     console.log(this.channelUrl);
-    const body = new HttpParams().set('UniqueName',search);
+    const body = new HttpParams()
+    .set('UniqueName',search);
      return this.http.post(this.channelUrl,body.toString(),httpOptions)
     
   } 
   joinMember(member):Observable<any>{
     //console.log(this.channelUrl);
-    const body = new HttpParams().set('ChannelSid',member.service_sid).set('ServiceSid',member.sid).set('Identity',this.UserData.id)
+    const body = new HttpParams()
+    .set('ChannelSid',member.service_sid)
+    .set('ServiceSid',member.sid)
+    .set('Identity',this.UserData.id)
      return this.http.post(member.links.members,body.toString(),httpOptions)
     
   } 
-  sendMessage(messageurl,message,member):Observable<any>{
+  sendMessage(messageurl,message,member,image):Observable<any>{
     //console.log(message)
-    const body = new HttpParams().set('ChannelSid',member.service_sid).set('ServiceSid',member.sid).set('Body',message).set('From',this.UserData.id)
+    if(image != undefined){
+    const body = new HttpParams()
+    .set('ChannelSid',member.service_sid)
+    .set('ServiceSid',member.sid).set('Body',image)
+    .set('From',this.UserData.id)
+    .set('content_type','image/jpeg')
      return this.http.post(messageurl,body.toString(),httpOptions)
-    
+    }
+    else {
+      const body = new HttpParams()
+      .set('ChannelSid',member.service_sid)
+      .set('ServiceSid',member.sid)
+      .set('Body',message)
+      .set('From',this.UserData.id)
+     return this.http.post(messageurl,body.toString(),httpOptions)
+    }
   }
   getMessage(channel):Observable<any>{
     // const body = new HttpParams().set('FriendlyName','ChatRoom');

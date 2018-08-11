@@ -40,7 +40,8 @@ export function getAuthServiceConfigs() {
 const routes =[
   { path: '', component:LoginComponent },
   {path:'login' , component:LoginComponent},
-  {path:'ChatRoom',component:ChatroomComponent,canActivate:[AuthguardService]},
+  {path:'ChatRoom',component:ChatroomComponent,canActivate:[AuthguardService]
+},
   { path: '**', redirectTo: '/login', pathMatch: 'full' },
 ];
 
