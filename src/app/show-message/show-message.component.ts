@@ -24,9 +24,9 @@ export class ShowMessageComponent implements OnInit {
   }
   ngOnInit() {
 
-    // setInterval(() => {
-    //   this.showdata()
-    // }, 600);
+    setInterval(() => {
+      this.showdata()
+    }, 600);
   }
 
 }

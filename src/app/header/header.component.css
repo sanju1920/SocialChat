@@ -8,3 +8,12 @@
     margin-left: 25%;
     border-bottom: inset;
 }
+img{
+    height: 50px;
+
+}
+#channelname{
+    font-size: 20px;
+    margin-left: 5%;
+    color: blue;
+}

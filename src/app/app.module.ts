@@ -15,6 +15,7 @@ import {
   SocialLoginModule,
   AuthServiceConfig,
   GoogleLoginProvider,
+  FacebookLoginProvider,
   
 } from "angular-6-social-login";
 import { ApiHitService } from './api-hit.service';
@@ -28,6 +29,10 @@ export function getAuthServiceConfigs() {
       {
         id: GoogleLoginProvider.PROVIDER_ID,
         provider: new GoogleLoginProvider("528690292192-q603hv8c7jgfbfi23goqb95ceo4404sn.apps.googleusercontent.com")
+      },
+      {
+        id: FacebookLoginProvider.PROVIDER_ID,
+        provider: new FacebookLoginProvider("463612824113758")
       }
       
 

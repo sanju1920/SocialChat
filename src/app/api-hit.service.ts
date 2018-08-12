@@ -37,15 +37,20 @@ export class ApiHitService {
   } 
   sendMessage(messageurl,message,member,image):Observable<any>{
     //console.log(message)
-    if(image != undefined){
+    if(image != null){
+      console.log(image)
     const body = new HttpParams()
     .set('ChannelSid',member.service_sid)
-    .set('ServiceSid',member.sid).set('Body',image)
+    .set('ServiceSid',member.sid)
     .set('From',this.UserData.id)
-    .set('content_type','image/jpeg')
-     return this.http.post(messageurl,body.toString(),httpOptions)
+    .set('content',image)
+    .set('data-binary',image)
+    
+    
+     return this.http.post(messageurl,body.toString,httpOptions)
     }
     else {
+      console.log(message)
       const body = new HttpParams()
       .set('ChannelSid',member.service_sid)
       .set('ServiceSid',member.sid)

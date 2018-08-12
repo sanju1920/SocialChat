@@ -1,7 +1,7 @@
 .ChannelRoom {
     position: absolute;
     margin-top: -80px;
-    height: 690px;
+    height: 680px;
     width: 25%;
     background-color: rgb(71, 35, 64);
     color: gray;
@@ -18,7 +18,7 @@
 }
 .directMessage{
     overflow: auto;
-    height: 30%;
+    height: 24%;
 }
 .glyphicon{
     font-size: 20px;

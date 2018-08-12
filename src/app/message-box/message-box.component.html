@@ -4,7 +4,7 @@
 
           <input type="text" class="form-control" placeholder="#Message" name="message" [(ngModel)]="message" (keydown)="send($event)">
           <label for="imageUpload" class="btn btn-primary btn-block btn-outlined">image</label>
-          <input type="file" id="imageUpload" name="image" accept="image/*" style="display: none" [(ngModel)]="image">
+          <input type="file" id="imageUpload" name="image" accept="image/*" style="display: none" (change)="onSelectFile($event)">
 
     
   </form>

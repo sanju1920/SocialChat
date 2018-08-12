@@ -62,6 +62,9 @@ export class ChannelListComponent implements OnInit {
   }
   join(member) {
     var store = this.apihit.joinMember(member);
-    store.subscribe(data => { console.log(data) });
+    store.subscribe(data => { 
+      console.log(data)
+    alert("Joined Successfully")
+    });
   }
 }

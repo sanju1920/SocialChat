@@ -1,8 +1,8 @@
 .show{
     width: 73%;
     margin-left: 27%;
-    height: 545px;
-    overflow:hidden;
+    height: 531px;
+    overflow:auto;
 }
 .alert-success{
    float: right;

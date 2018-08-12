@@ -11,7 +11,8 @@ import { Router } from '@angular/router';
 export class MessageBoxComponent implements OnInit {
   messageurl: string = "https://chat.twilio.com/v2/Services/IScf713e81084f479691f0b349a69cbfd0/Channels/"
   message: string;
-  image:any;
+
+  SelectedFile: File = null;
   constructor(private myserviec: MyserviceService, private apihit: ApiHitService, private routes: Router) {
 
   }
@@ -21,22 +22,27 @@ export class MessageBoxComponent implements OnInit {
   send(event: any) {
     // console.log(this.myserviec.channelid,"ok")
     if (event.keyCode == 13) {
-      var id = this.myserviec.channelid.sid;
-      var url = this.messageurl + id + "/Messages/"
-      this.apihit.sendMessage(url, this.message, this.myserviec.channelid,this.image)
-        .subscribe(data => {
-          //  console.log(data,"message send")
-          this.message = ""
-          this.image=undefined
-          this.apihit.getMessage(this.myserviec.channelid)
-            .subscribe(mes => {
-              this.myserviec.showmessage = mes
-              console.log(mes)
-            });
-        });
+      if (this.message != undefined || this.SelectedFile != null) {
+        var id = this.myserviec.channelid.sid;
+        var url = this.messageurl + id + "/Messages/"
+        this.apihit.sendMessage(url, this.message, this.myserviec.channelid, this.SelectedFile)
+          .subscribe(data => {
+            console.log(data, "message send")
+            this.message = ""
+            this.SelectedFile = null
+            this.apihit.getMessage(this.myserviec.channelid)
+              .subscribe(mes => {
+                this.myserviec.showmessage = mes
+                console.log(mes)
+              });
+          });
 
+      }
     }
 
+  }
+  onSelectFile(event) {
+    this.SelectedFile = <File>event.target.files[0];
   }
 
 }

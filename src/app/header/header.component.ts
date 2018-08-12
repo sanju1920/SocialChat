@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MyserviceService } from '../myservice.service';
+import { ApiHitService } from '../api-hit.service';
 
 @Component({
   selector: 'app-header',
@@ -8,8 +9,9 @@ import { MyserviceService } from '../myservice.service';
 })
 export class HeaderComponent implements OnInit {
 navbar:string="";
-  constructor(private service:MyserviceService) { 
-  
+image;
+  constructor(private service:MyserviceService,private api :ApiHitService) { 
+    this.image= api.UserData.image;
   }
 
   ngOnInit() {
