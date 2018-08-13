@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiHitService } from '../api-hit.service';
 import { MyserviceService } from '../myservice.service';
 import { Router } from '@angular/router';
+import { Observable } from '../../../node_modules/rxjs';
 
 @Component({
   selector: 'app-channel-list',
@@ -24,21 +25,26 @@ export class ChannelListComponent implements OnInit {
    this.searchkey = new RegExp(this.reg,'i')
   
   }
+  temp=[];
   getlist(){
+    
     this.channelList.forEach(element => {
      // console.log(element)
       this.apihit.getmember(element.links.members).subscribe(res=>{
-       // console.log(res)
+     //   console.log(res)
         res.members.forEach(item => {
        // console.log(item.identity)
         if(this.apihit.UserData.id === item.identity)
         {
         //  console.log(element.unique_name)
+        this.temp.push(item)
+      //  console.log(this.temp,"data")
         }
         });
       });
       
     });
+    
   }
   showList() {
     this.apihit.getChannel().subscribe(data => {
@@ -58,6 +64,7 @@ export class ChannelListComponent implements OnInit {
       if (this.search != "") {
         var channelDetail = this.apihit.createChannel(this.search);
         channelDetail.subscribe(data => {//console.log(data,"channel"
+          this.temp=[];
           this.showList();
           alert("Channel Created")
         });
@@ -79,7 +86,9 @@ export class ChannelListComponent implements OnInit {
   join(member) {
     var store = this.apihit.joinMember(member);
     store.subscribe(data => { 
-      console.log(data)
+    //  console.log(data)
+      this.temp=[];
+      this.showList();
     alert("Joined Successfully")
     });
   }

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MyserviceService } from '../myservice.service';
 import { ApiHitService } from '../api-hit.service';
-import { Router } from '../../../node_modules/@angular/router';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-header',

@@ -1,5 +1,5 @@
 <div class="ChannelRoom">
-     <div class="UserDetail">
+    <div class="UserDetail">
         <h1>{{name}}</h1>
         <span class="glyphicon glyphicon-bell"></span>
         <form class="form-inline">
@@ -8,8 +8,8 @@
         <div class="list1">
             <label></label>
             <div *ngFor="let channelName of channelList ">
-                   
-                <div *ngIf="(reg !=''&& searchkey.test(channelName.unique_name))" >
+
+                <div *ngIf="(reg !=''&& searchkey.test(channelName.unique_name))">
                     <label></label>
 
                     <a (click)="join(channelName)">#{{channelName.unique_name}}
@@ -21,7 +21,7 @@
             </div>
             <label></label>
         </div>
-    </div> 
+    </div>
 
 
     <div class="Channel">
@@ -34,11 +34,15 @@
         </i>
         <div class="list">
             <div *ngFor="let channelName of channelList ">
-                <label></label>
-                <a (click)="showMessage(channelName)">#{{channelName.unique_name}}
+                <div *ngFor="let fil of temp">
+                    <div *ngIf ="fil.channel_sid === channelName.sid">
+                        <label></label>
+                        <a (click)="showMessage(channelName)">#{{channelName.unique_name}}
 
-                </a>
-                <label></label>
+                        </a>
+                        <label></label>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
