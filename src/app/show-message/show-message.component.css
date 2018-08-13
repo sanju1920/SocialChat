@@ -6,9 +6,12 @@
 }
 .alert-success{
    float: right;
+   
 }
-.alert {
+.alert{
     width: 51%;
+    max-width: 51%;
+    word-wrap: break-word;
 }
 #color{
     background-color: rgb(243, 160, 105);

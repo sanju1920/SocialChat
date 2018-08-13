@@ -24,10 +24,26 @@ export class ChannelListComponent implements OnInit {
    this.searchkey = new RegExp(this.reg,'i')
   
   }
+  getlist(){
+    this.channelList.forEach(element => {
+     // console.log(element)
+      this.apihit.getmember(element.links.members).subscribe(res=>{
+       // console.log(res)
+        res.members.forEach(item => {
+       // console.log(item.identity)
+        if(this.apihit.UserData.id === item.identity)
+        {
+        //  console.log(element.unique_name)
+        }
+        });
+      });
+      
+    });
+  }
   showList() {
     this.apihit.getChannel().subscribe(data => {
     this.channelList = data.channels
-    //  console.log(data)
+      this.getlist();
     })
   }
   ngOnInit() {

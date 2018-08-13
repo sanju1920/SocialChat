@@ -14,7 +14,12 @@ import { AuthguardService } from '../authguard.service';
 export class LoginComponent implements OnInit {
 
   constructor(private socialAuthService: AuthService, private service: ApiHitService, private routes: Router, private myserve: MyserviceService, private auth: AuthguardService) {
-
+      service.UserData = JSON.parse(sessionStorage.getItem('Userdata')) ; 
+      if( JSON.parse(sessionStorage.getItem('Userdata'))!=undefined)
+      {
+        routes.navigate(['/ChatRoom'])
+        alert('Already Loged In')
+      }     
 
   }
 
@@ -31,7 +36,8 @@ export class LoginComponent implements OnInit {
 
     this.socialAuthService.signIn(socialPlatformProvider).then(
       (userData) => {
-          console.log(socialPlatform + " sign in data : ", userData);
+        sessionStorage.setItem('Userdata',JSON.stringify(userData))
+      //  console.log(socialPlatform + " sign in data : ", userData);
         this.service.UserData = userData;
         this.auth.auth = true;
         // Now sign-in with userData

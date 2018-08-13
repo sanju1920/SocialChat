@@ -26,6 +26,10 @@ export class ApiHitService {
      return this.http.post(this.channelUrl,body.toString(),httpOptions)
     
   } 
+  getmember(memberurl):Observable<any>{
+        return this.http.get(memberurl,httpOptions)
+  }
+  
   joinMember(member):Observable<any>{
     //console.log(this.channelUrl);
     const body = new HttpParams()
