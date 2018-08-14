@@ -12,7 +12,7 @@ export class ShowMessageComponent implements OnInit {
   id;
   constructor(private mysevice: MyserviceService, private api: ApiHitService) {
 
-    this.id = api.UserData.id;
+    this.id = JSON.parse(sessionStorage.getItem('Userdata')).id;
   }
   showdata() {
     if (this.mysevice.channelid != undefined) {

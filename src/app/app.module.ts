@@ -43,7 +43,7 @@ export function getAuthServiceConfigs() {
 
 //***************   Create routes       ******************* *//
 const routes =[
-  { path: '', component:LoginComponent },
+  { path: '',  redirectTo: '/login', pathMatch: 'full' },
   {path:'login' , component:LoginComponent},
   {path:'ChatRoom',component:ChatroomComponent,canActivate:[AuthguardService]
 },

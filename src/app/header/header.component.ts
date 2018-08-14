@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
 navbar:string="";
 image;
   constructor(private service:MyserviceService,private api :ApiHitService,private routes:Router) { 
-    this.image= api.UserData.image;
+    this.image= JSON.parse(sessionStorage.getItem('Userdata')).image
   }
 
   ngOnInit() {

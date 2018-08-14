@@ -14,41 +14,40 @@ export class ChannelListComponent implements OnInit {
   checkadd: boolean = false;
   search: string = "";
   channelList: any;
-  reg:string='';
-  searchkey= new RegExp(this.reg,'i')
+  reg: string = '';
+  searchkey = new RegExp(this.reg, 'i')
 
   constructor(private apihit: ApiHitService, private myserve: MyserviceService, private routes: Router) {
 
-    this.name = this.apihit.UserData.name;
+    this.name =JSON.parse(sessionStorage.getItem('Userdata')).name
   }
-  creatReg(){
-   this.searchkey = new RegExp(this.reg,'i')
-  
+  creatReg() {
+    this.searchkey = new RegExp(this.reg, 'i')
+
   }
-  temp=[];
-  getlist(){
-    
+  temp = [];
+  getlist() {
+
     this.channelList.forEach(element => {
-     // console.log(element)
-      this.apihit.getmember(element.links.members).subscribe(res=>{
-     //   console.log(res)
+      // console.log(element)
+      this.apihit.getmember(element.links.members).subscribe(res => {
+        //   console.log(res)
         res.members.forEach(item => {
-       // console.log(item.identity)
-        if(this.apihit.UserData.id === item.identity)
-        {
-        //  console.log(element.unique_name)
-        this.temp.push(item)
-      //  console.log(this.temp,"data")
-        }
+          // console.log(item.identity)
+          if (JSON.parse(sessionStorage.getItem('Userdata')).id === item.identity) {
+            //  console.log(element.unique_name)
+            this.temp.push(item)
+            //  console.log(this.temp,"data")
+          }
         });
       });
-      
+
     });
-    
+
   }
   showList() {
     this.apihit.getChannel().subscribe(data => {
-    this.channelList = data.channels
+      this.channelList = data.channels
       this.getlist();
     })
   }
@@ -64,9 +63,11 @@ export class ChannelListComponent implements OnInit {
       if (this.search != "") {
         var channelDetail = this.apihit.createChannel(this.search);
         channelDetail.subscribe(data => {//console.log(data,"channel"
-          this.temp=[];
+          this.temp = [];
           this.showList();
           alert("Channel Created")
+        },err =>{
+          alert("Already Created")
         });
       }
       this.checkadd = false;
@@ -85,11 +86,13 @@ export class ChannelListComponent implements OnInit {
   }
   join(member) {
     var store = this.apihit.joinMember(member);
-    store.subscribe(data => { 
-    //  console.log(data)
-      this.temp=[];
+    store.subscribe(data => {
+      //  console.log(data)
+      this.temp = [];
       this.showList();
-    alert("Joined Successfully")
-    });
+      alert("Joined Successfully")
+    },err =>{
+      alert("Already Joined")
+    })
   }
 }
