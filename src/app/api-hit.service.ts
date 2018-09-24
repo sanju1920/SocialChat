@@ -72,7 +72,7 @@ export class ApiHitService {
  const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/x-www-form-urlencoded',
-    'Authorization': 'Basic QUNjZmY0ZTAxZTJhOTdjZTRhYTE4ZDE0ZGY2MGMyYzM4ZjowYjkyODU5NDU5N2IxY2NkMzQ5M2ViYjE3NTgyZDQ0YQ=='
+    'Authorization': 'Basic your auth token'
   })
 };
 
